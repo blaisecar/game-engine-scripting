@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 namespace Battleship
 {
@@ -35,8 +36,8 @@ namespace Battleship
         [SerializeField] Transform gridRoot;
         [SerializeField] GameObject cellPrefab;
         [SerializeField] GameObject winLabel;
-        [SerializeField] GameObject timeLabel;
-        [SerializeField] GameObject scoreLabel;
+        [SerializeField] TextMeshProUGUI timeLabel;
+        [SerializeField] TextMeshProUGUI scoreLabel;
 
         Transform GetCurrentCell()
         {
@@ -100,7 +101,7 @@ namespace Battleship
         {
             score++;
 
-          // scoreLabel.text = string.Format("Score: {0}", score);
+           scoreLabel.text = string.Format("Score: {0}", score);
         }
 
         private void Awake()
@@ -160,7 +161,7 @@ namespace Battleship
         void IncrementTime()
         {
             time++;
-         //   timeLabel.text = string.Format("{0}:{1}", time / 60, (time % 60).ToString("00"));
+           timeLabel.text = string.Format("{0}:{1}", time / 60, (time % 60).ToString("00"));
         }
 
         void Start()
