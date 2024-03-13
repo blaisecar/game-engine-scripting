@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-namespace Week7
+namespace mazegame
 {
     public class Player : MonoBehaviour
     {

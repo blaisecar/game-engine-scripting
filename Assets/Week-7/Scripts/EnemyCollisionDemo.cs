@@ -3,43 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class EnemyCollisionDemo : MonoBehaviour
+namespace mazegame
 {
-    public Material materialDamaged;
-    public Material materialNormal;
-    private MeshRenderer mr;
-
-    private void Awake()
+    public class EnemyCollisionDemo : MonoBehaviour
     {
-        mr = GetComponent<MeshRenderer>();
-    }
+        public Material materialDamaged;
+        public Material materialNormal;
+        private MeshRenderer mr;
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-        mr.material = materialDamaged;
-        DOVirtual.DelayedCall(0.1f, () =>
+        private void Awake()
         {
-            mr.material = materialNormal;
-        });
+            mr = GetComponent<MeshRenderer>();
+        }
+
+
+        private void OnTriggerEnter(Collider other)
+        {
+
+            mr.material = materialDamaged;
+            DOVirtual.DelayedCall(0.1f, () =>
+            {
+                mr.material = materialNormal;
+            });
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+
+        }
+
+
+        //for physics vvvv
+        private void OnCollisionEnter(Collision collision)
+        {
+
+        }
+
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        
-    }
-
-
-    //for physics vvvv
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
 }
